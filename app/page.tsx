@@ -40,7 +40,9 @@ export default async function HomePage() {
     },
   });
 
-  const championMap = new Map(
+  type ChampionPlan = (typeof championPlans)[number];
+
+  const championMap = new Map<string, ChampionPlan>(
     championPlans.map((plan) => [plan.category, plan]),
   );
 
