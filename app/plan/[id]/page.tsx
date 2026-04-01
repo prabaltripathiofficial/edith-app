@@ -138,10 +138,16 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
                   </div>
                   <div className="rounded-xl px-4 py-3" style={{ background: "var(--bg-muted)" }}>
                     <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "var(--text-tertiary)" }}>Author</div>
-                    <div className="mt-1 flex items-center gap-2 min-w-0 text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                    <a 
+                      href={`https://github.com/${authorUsername}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-1 flex items-center gap-2 min-w-0 text-sm font-medium transition-colors hover:text-[var(--brand-solid)]" 
+                      style={{ color: "var(--text-primary)" }}
+                    >
                       <UserCircle2 className="h-4 w-4 flex-shrink-0" style={{ color: "var(--text-tertiary)" }} />
                       <span className="truncate">@{authorUsername}</span>
-                    </div>
+                    </a>
                   </div>
                   <div className="rounded-xl px-4 py-3" style={{ background: "var(--bg-muted)" }}>
                     <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "var(--text-tertiary)" }}>Published</div>
@@ -154,7 +160,12 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
               </div>
 
               <div className="flex flex-col gap-4 pt-5 sm:flex-row sm:items-center sm:justify-between" style={{ borderTop: "1px solid var(--border-default)" }}>
-                <div className="flex items-center gap-3 min-w-0">
+                <a 
+                  href={`https://github.com/${authorUsername}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-3 min-w-0 transition-opacity hover:opacity-80"
+                >
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={authorAvatar}
@@ -163,10 +174,10 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
                     style={{ border: "1px solid var(--border-default)" }}
                   />
                   <div className="min-w-0">
-                    <div className="truncate text-sm font-medium" style={{ color: "var(--text-primary)" }}>@{authorUsername}</div>
+                    <div className="truncate text-sm font-medium transition-colors group-hover:text-[var(--brand-solid)]" style={{ color: "var(--text-primary)" }}>@{authorUsername}</div>
                     <div className="text-[11px]" style={{ color: "var(--text-tertiary)" }}>Champion author</div>
                   </div>
-                </div>
+                </a>
 
                 <Link
                   href={`/submit?category=${plan.category}`}
