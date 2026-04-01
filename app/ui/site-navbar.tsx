@@ -158,16 +158,16 @@ export function SiteNavbar({ current = "dashboard", user }: SiteNavbarProps) {
                 className="mt-2 flex items-center justify-between border-t pt-3"
                 style={{ borderColor: "var(--border-default)" }}
               >
-                <div className="flex items-center gap-2.5">
+                <div className="flex items-center gap-2.5 min-w-0 flex-1 mr-3">
                   {user.avatarUrl ? (
                     // eslint-disable-next-line @next/next/no-img-element
                     <img
                       src={user.avatarUrl}
                       alt={user.username}
-                      className="h-7 w-7 rounded-full object-cover"
+                      className="h-7 w-7 flex-shrink-0 rounded-full object-cover"
                     />
                   ) : null}
-                  <span className="text-sm" style={{ color: "var(--text-secondary)" }}>
+                  <span className="truncate text-sm" style={{ color: "var(--text-secondary)" }}>
                     @{user.username}
                   </span>
                 </div>
@@ -179,10 +179,10 @@ export function SiteNavbar({ current = "dashboard", user }: SiteNavbarProps) {
                     });
                   }}
                   disabled={isPending}
-                  className="text-sm"
+                  className="flex-shrink-0 rounded-lg px-3 py-1.5 text-sm transition-colors hover:bg-[var(--bg-muted)] disabled:opacity-50"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  {isPending ? "Signing out..." : "Log out"}
+                  {isPending ? "Signing out…" : "Log out"}
                 </button>
               </div>
             ) : null}

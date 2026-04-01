@@ -138,9 +138,9 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
                   </div>
                   <div className="rounded-xl px-4 py-3" style={{ background: "var(--bg-muted)" }}>
                     <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "var(--text-tertiary)" }}>Author</div>
-                    <div className="mt-1 flex items-center gap-2 text-sm font-medium" style={{ color: "var(--text-primary)" }}>
-                      <UserCircle2 className="h-4 w-4" style={{ color: "var(--text-tertiary)" }} />
-                      @{authorUsername}
+                    <div className="mt-1 flex items-center gap-2 min-w-0 text-sm font-medium" style={{ color: "var(--text-primary)" }}>
+                      <UserCircle2 className="h-4 w-4 flex-shrink-0" style={{ color: "var(--text-tertiary)" }} />
+                      <span className="truncate">@{authorUsername}</span>
                     </div>
                   </div>
                   <div className="rounded-xl px-4 py-3" style={{ background: "var(--bg-muted)" }}>
@@ -153,24 +153,24 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between pt-5" style={{ borderTop: "1px solid var(--border-default)" }}>
-                <div className="flex items-center gap-3">
+              <div className="flex flex-col gap-4 pt-5 sm:flex-row sm:items-center sm:justify-between" style={{ borderTop: "1px solid var(--border-default)" }}>
+                <div className="flex items-center gap-3 min-w-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={authorAvatar}
                     alt={authorUsername}
-                    className="h-9 w-9 rounded-full object-cover"
+                    className="h-9 w-9 flex-shrink-0 rounded-full object-cover"
                     style={{ border: "1px solid var(--border-default)" }}
                   />
-                  <div>
-                    <div className="text-sm font-medium" style={{ color: "var(--text-primary)" }}>@{authorUsername}</div>
+                  <div className="min-w-0">
+                    <div className="truncate text-sm font-medium" style={{ color: "var(--text-primary)" }}>@{authorUsername}</div>
                     <div className="text-[11px]" style={{ color: "var(--text-tertiary)" }}>Champion author</div>
                   </div>
                 </div>
 
                 <Link
                   href={`/submit?category=${plan.category}`}
-                  className="btn-secondary inline-flex items-center gap-2 px-4 py-2.5 text-sm"
+                  className="btn-secondary inline-flex items-center justify-center gap-2 px-4 py-2.5 text-sm sm:w-auto"
                 >
                   <Swords className="h-4 w-4" />
                   Challenge this plan

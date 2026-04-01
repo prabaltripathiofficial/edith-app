@@ -190,25 +190,25 @@ export default async function HomePage() {
                     </h3>
 
                     <div className="mt-auto flex items-center justify-between pt-4">
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 min-w-0 flex-1 mr-2">
                         {champion.author.avatarUrl ? (
                           // eslint-disable-next-line @next/next/no-img-element
                           <img
                             src={champion.author.avatarUrl}
                             alt={champion.author.username ?? ""}
-                            className="h-5 w-5 rounded-full"
+                            className="h-5 w-5 flex-shrink-0 rounded-full"
                             style={{ border: "1px solid var(--border-default)" }}
                           />
                         ) : null}
                         <span
-                          className="text-[11px]"
+                          className="truncate text-[11px]"
                           style={{ color: "var(--text-tertiary)" }}
                         >
                           @{champion.author.username ?? "unknown"}
                         </span>
                       </div>
                       <ArrowUpRight
-                        className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                        className="h-4 w-4 flex-shrink-0 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                         style={{ color: "var(--text-tertiary)" }}
                       />
                     </div>

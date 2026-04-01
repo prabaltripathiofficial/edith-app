@@ -30,12 +30,14 @@ export default function CopyMarkdownButton({ markdown }: CopyMarkdownButtonProps
     <button
       type="button"
       onClick={handleCopy}
-      className={`btn-secondary inline-flex items-center gap-2 px-4 py-2.5 text-sm ${
+      className={`btn-secondary inline-flex items-center gap-1.5 px-2.5 py-2 text-xs sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm ${
         copied ? "!border-[var(--success)] !text-[var(--success)]" : ""
       }`}
     >
-      {copied ? <Check className="h-4 w-4" /> : <Copy className="h-4 w-4" />}
-      {copied ? "Copied!" : "Copy for Agent"}
+      {copied ? <Check className="h-3.5 w-3.5 sm:h-4 sm:w-4" /> : <Copy className="h-3.5 w-3.5 sm:h-4 sm:w-4" />}
+      <span className="hidden sm:inline">{copied ? "Copied!" : "Copy for Agent"}</span>
+      <span className="sm:hidden">{copied ? "Copied" : "Copy"}</span>
     </button>
   );
 }
+
