@@ -12,8 +12,8 @@ export function EdithLogo({
   size = "default",
 }: EdithLogoProps) {
   const alignment = align === "center" ? "items-center text-center" : "items-start text-left";
-  const titleSize = size === "large" ? "text-4xl sm:text-5xl" : "text-lg sm:text-xl";
-  const subtitleSize = size === "large" ? "text-[11px] tracking-[0.3em]" : "text-[9px] tracking-[0.22em]";
+  const titleSize = size === "large" ? "text-3xl sm:text-4xl lg:text-5xl" : "text-base sm:text-xl";
+  const subtitleSize = size === "large" ? "text-[10px] tracking-[0.25em] sm:text-[11px] sm:tracking-[0.3em]" : "text-[8px] tracking-[0.2em] sm:text-[9px] sm:tracking-[0.22em]";
 
   return (
     <Link href={href} className={`group inline-flex flex-col gap-1 ${alignment}`}>

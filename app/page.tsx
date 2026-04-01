@@ -60,7 +60,7 @@ export default async function HomePage() {
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
         {/* Hero */}
         <header className="mb-10 animate-fade-in">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
@@ -70,14 +70,14 @@ export default async function HomePage() {
                 Plan Registry
               </div>
               <h1
-                className="text-3xl font-bold tracking-tight sm:text-4xl"
+                className="text-2xl font-bold tracking-tight leading-tight sm:text-3xl sm:leading-snug lg:text-4xl"
                 style={{ color: "var(--text-primary)" }}
               >
                 One champion plan{" "}
                 <span className="text-gradient">per category</span>
               </h1>
               <p
-                className="mt-3 max-w-xl text-base leading-relaxed"
+                className="mt-2 max-w-xl text-sm leading-relaxed sm:mt-3 sm:text-base"
                 style={{ color: "var(--text-secondary)" }}
               >
                 Tech-stack agnostic execution plans, AI-evaluated and ranked.
@@ -86,8 +86,8 @@ export default async function HomePage() {
             </div>
 
             {/* Stats */}
-            <div className="flex gap-3">
-              <div className="card rounded-2xl px-5 py-4">
+            <div className="flex gap-2.5 sm:gap-3">
+              <div className="card rounded-xl px-4 py-3 sm:rounded-2xl sm:px-5 sm:py-4">
                 <div
                   className="text-[11px] font-semibold uppercase tracking-[0.15em]"
                   style={{ color: "var(--text-tertiary)" }}
@@ -107,7 +107,7 @@ export default async function HomePage() {
                   </span>
                 </div>
               </div>
-              <div className="card rounded-2xl px-5 py-4">
+              <div className="card rounded-xl px-4 py-3 sm:rounded-2xl sm:px-5 sm:py-4">
                 <div
                   className="text-[11px] font-semibold uppercase tracking-[0.15em]"
                   style={{ color: "var(--text-tertiary)" }}
@@ -126,7 +126,7 @@ export default async function HomePage() {
         </header>
 
         {/* Category grid */}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div className="grid gap-3 sm:grid-cols-2 sm:gap-4 lg:grid-cols-3 xl:grid-cols-4">
           {CATEGORIES.map((category, index) => {
             const champion = championMap.get(category.slug);
             const IconComponent = category.icon;

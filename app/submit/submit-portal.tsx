@@ -143,7 +143,7 @@ export default function SubmitPortal({ user, champions, initialCategory }: Submi
     <div className="min-h-screen" style={{ background: "var(--bg-subtle)" }}>
       <SiteNavbar current="submit" user={user} />
 
-      <div className="mx-auto max-w-7xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-7xl px-5 pb-16 sm:px-6 lg:px-8">
         {/* Header */}
         <header className="mb-8 animate-fade-in">
           <div className="badge badge-brand mb-4">
@@ -151,7 +151,7 @@ export default function SubmitPortal({ user, champions, initialCategory }: Submi
             Submission Portal
           </div>
           <h1
-            className="text-2xl font-bold tracking-tight sm:text-3xl"
+            className="text-xl font-bold tracking-tight sm:text-2xl lg:text-3xl"
             style={{ color: "var(--text-primary)" }}
           >
             Challenge the champion
@@ -165,7 +165,7 @@ export default function SubmitPortal({ user, champions, initialCategory }: Submi
           </p>
         </header>
 
-        <main className="grid flex-1 gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(340px,0.95fr)]">
+        <main className="grid flex-1 gap-5 sm:gap-6 xl:grid-cols-[minmax(0,1.55fr)_minmax(340px,0.95fr)]">
           {/* Editor */}
           <section className="card p-5 sm:p-6 animate-fade-in" style={{ animationDelay: "0.1s" }}>
             <form className="space-y-5" onSubmit={handleSubmit}>

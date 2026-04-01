@@ -83,7 +83,7 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
         }}
       />
 
-      <div className="mx-auto max-w-5xl px-4 pb-16 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-5xl px-5 pb-16 sm:px-6 lg:px-8">
         <div className="space-y-6 animate-fade-in">
           {/* Header */}
           <header className="card overflow-hidden">
@@ -115,7 +115,7 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
               <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
                 <div className="max-w-3xl">
                   <h1
-                    className="text-2xl font-bold tracking-tight sm:text-3xl"
+                    className="text-xl font-bold tracking-tight leading-tight sm:text-2xl lg:text-3xl"
                     style={{ color: "var(--text-primary)" }}
                   >
                     {plan.title}
@@ -129,7 +129,7 @@ export default async function PlanDetailPage({ params }: PlanDetailPageProps) {
                   </p>
                 </div>
 
-                <div className="flex flex-wrap gap-3 lg:flex-col">
+                <div className="grid grid-cols-3 gap-2 sm:flex sm:flex-wrap sm:gap-3 lg:flex-col">
                   <div className="rounded-xl px-4 py-3" style={{ background: "var(--bg-muted)" }}>
                     <div className="text-[10px] uppercase tracking-[0.15em]" style={{ color: "var(--text-tertiary)" }}>Score</div>
                     <div className="mt-1 text-xl font-bold" style={{ color: "var(--brand-solid)" }}>
