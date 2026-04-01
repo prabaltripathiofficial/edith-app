@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .letter { fill: #0F172A; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 24px; font-weight: 800; }
+    .dot { fill: #6366f1; }
+    @media (prefers-color-scheme: dark) {
+      .letter { fill: #FFFFFF; }
+      .dot { fill: #818CF8; }
+    }
+  </style>
+  <text x="6" y="24" class="letter">E</text>
+  <circle cx="23" cy="22" r="4" class="dot"/>
+</svg>
