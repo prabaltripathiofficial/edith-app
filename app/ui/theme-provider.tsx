@@ -18,29 +18,25 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("light");
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    const stored = localStorage.getItem("edith-theme") as Theme | null;
-    if (stored === "dark" || stored === "light") {
-      setTheme(stored);
-      document.documentElement.setAttribute("data-theme", stored);
-    }
-    setMounted(true);
-  }, []);
-
-  function toggleTheme() {
-    const next = theme === "light" ? "dark" : "light";
-    setTheme(next);
-    localStorage.setItem("edith-theme", next);
-    document.documentElement.setAttribute("data-theme", next);
+function getInitialTheme(): Theme {
+  if (typeof window === "undefined") {
+    return "light";
   }
 
-  // Prevent flash of wrong theme
-  if (!mounted) {
-    return <>{children}</>;
+  const stored = localStorage.getItem("friday-theme") as Theme | null;
+  return stored === "dark" || stored === "light" ? stored : "light";
+}
+
+export function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("friday-theme", theme);
+  }, [theme]);
+
+  function toggleTheme() {
+    setTheme((current) => (current === "light" ? "dark" : "light"));
   }
 
   return (
