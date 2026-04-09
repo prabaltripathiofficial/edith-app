@@ -18,25 +18,29 @@ export function useTheme() {
   return useContext(ThemeContext);
 }
 
-function getInitialTheme(): Theme {
-  if (typeof window === "undefined") {
-    return "light";
-  }
-
-  const stored = localStorage.getItem("friday-theme") as Theme | null;
-  return stored === "dark" || stored === "light" ? stored : "light";
-}
-
 export function ThemeProvider({ children }: { children: React.ReactNode }) {
-  const [theme, setTheme] = useState<Theme>(getInitialTheme);
+  const [theme, setTheme] = useState<Theme>("light");
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    document.documentElement.setAttribute("data-theme", theme);
-    localStorage.setItem("friday-theme", theme);
-  }, [theme]);
+    const stored = localStorage.getItem("edith-theme") as Theme | null;
+    if (stored === "dark" || stored === "light") {
+      setTheme(stored);
+      document.documentElement.setAttribute("data-theme", stored);
+    }
+    setMounted(true);
+  }, []);
 
   function toggleTheme() {
-    setTheme((current) => (current === "light" ? "dark" : "light"));
+    const next = theme === "light" ? "dark" : "light";
+    setTheme(next);
+    localStorage.setItem("edith-theme", next);
+    document.documentElement.setAttribute("data-theme", next);
+  }
+
+  // Prevent flash of wrong theme
+  if (!mounted) {
+    return <>{children}</>;
   }
 
   return (

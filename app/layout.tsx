@@ -1,48 +1,64 @@
 import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 
 import { ThemeProvider } from "@/app/ui/theme-provider";
 import { AppToaster } from "./toaster";
 
 import "./globals.css";
 
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://friday.vercel.app";
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? "https://edith-app.vercel.app";
 
 export const metadata: Metadata = {
   metadataBase: new URL(APP_URL),
   title: {
-    default: "Friday | Enterprise Conversion Studio",
-    template: "%s | Friday",
+    default: "EDITH — The AI-Evaluated Plan Registry for Engineering Teams",
+    template: "%s | EDITH",
   },
   description:
-    "Friday is a polished web workspace for converting HTML into visuals, rendering markdown like documentation, and handling everyday JSON, CSV, and URL transformations.",
-  applicationName: "Friday",
-  authors: [{ name: "Friday" }],
-  creator: "Friday",
-  publisher: "Friday",
+    "EDITH is an open-source registry of production-grade, AI-evaluated plan.md execution plans for software engineering agents. One champion plan per category. Tech-stack agnostic.",
+  applicationName: "EDITH",
+  authors: [{ name: "EDITH" }],
+  creator: "EDITH",
+  publisher: "EDITH",
   keywords: [
-    "html preview tool",
-    "markdown documentation viewer",
-    "json formatter",
-    "csv viewer",
-    "url inspector",
-    "developer workspace",
-    "content transformation studio",
-    "enterprise conversion tool",
+    "EDITH",
+    "edith plan registry",
+    "agentic workflows",
+    "plan.md",
+    "AI-evaluated plans",
+    "software engineering agents",
+    "developer workflows",
+    "execution plans",
+    "agentic AI",
+    "plan registry",
+    "AI code review",
+    "tech-stack agnostic plans",
+    "verified agentic workflows",
   ],
   openGraph: {
-    title: "Friday | Enterprise Conversion Studio",
+    title: "EDITH — The AI-Evaluated Plan Registry for Engineering Teams",
     description:
-      "A high-end content conversion workspace for HTML previews, markdown docs, and daily transformation tasks.",
-    siteName: "Friday",
+      "A curated, AI-evaluated collection of production-grade execution plans. One champion per category. Submit yours to compete.",
+    siteName: "EDITH",
     type: "website",
     url: "/",
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Friday | Enterprise Conversion Studio",
+    title: "EDITH — The AI-Evaluated Plan Registry",
     description:
-      "Convert pasted HTML into visuals, render markdown as docs, and cover daily JSON, CSV, and URL workflows in one studio.",
+      "Open-source registry of AI-evaluated plan.md files. One champion per category. Tech-stack agnostic.",
   },
   robots: {
     index: true,
@@ -67,11 +83,11 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  name: "Friday",
+  name: "EDITH",
   url: APP_URL,
   description:
-    "A content conversion workspace for HTML previews, markdown docs, JSON formatting, CSV review, and URL inspection.",
-  applicationCategory: "BusinessApplication",
+    "An open-source registry of AI-evaluated, production-grade execution plans for software engineering agents.",
+  applicationCategory: "DeveloperApplication",
   operatingSystem: "Web",
   offers: {
     "@type": "Offer",
@@ -88,7 +104,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="h-full antialiased"
+      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <head>
         <script
